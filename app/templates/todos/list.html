@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo List</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Todo List</h1>
+        <a href="/create" class="btn">Add New Todo</a>
+        
+        <div class="todo-list">
+            {% for todo in todos %}
+            <div class="todo-item {% if todo.completed %}completed{% endif %}">
+                <div class="todo-content">
+                    <h3>{{ todo.title }}</h3>
+                    <p>{{ todo.description or '' }}</p>
+                    <small>Created at: {{ todo.created_at.strftime('%Y-%m-%d %H:%M') }}</small>
+                </div>
+                <div class="todo-actions">
+                    <a href="/{{ todo.id }}" class="btn">View</a>
+                    <a href="/{{ todo.id }}/edit" class="btn">Edit</a>
+                    <a href="/{{ todo.id }}/delete" class="btn danger">Delete</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

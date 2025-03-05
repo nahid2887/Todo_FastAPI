@@ -1,0 +1,6 @@
+fastapi>=0.68.0
+uvicorn>=0.15.0
+sqlalchemy>=1.4.0
+databases[postgresql]>=0.5.0  # or databases[sqlite]
+jinja2>=3.0.0
+python-multipart
